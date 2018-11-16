@@ -45,13 +45,10 @@ typings/
 # Optional eslint cache
 .eslintcache
 
-<<<<<<< HEAD
 #All files 
 .vscode
 config.js
-
-=======
->>>>>>> e0ec16a778cf06c96ecd5e9c5c52551c2714db85
+package-lock.json
 # Optional REPL history
 .node_repl_history
 
