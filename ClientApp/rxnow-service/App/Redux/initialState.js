@@ -42,5 +42,6 @@ export const initialState = {
             email: 'jj@jj.jj',
         }
     },
+    
     serviceProvider: {},
 };

@@ -53,7 +53,7 @@ export default class App extends Component {
 
     // Get the token that uniquely identifies this device
     let token = await Notifications.getExpoPushTokenAsync();
-    console.log(token);
+    console.log('root/index.js',token);
     return fetch(PUSH_ENDPOINT, {
       method: 'POST',
       headers: {

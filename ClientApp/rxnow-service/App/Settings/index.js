@@ -104,7 +104,7 @@ class ServiceSettings extends Component {
             StatusBar.setBackgroundColor('#2d324f', true);
             StatusBar.setTranslucent(true);
         }
-        console.log(this.props);
+       
         return (
             <Container style={styles.main}>
                 <Header androidStatusBarColor={'#2d324f'} style={styles.header}>

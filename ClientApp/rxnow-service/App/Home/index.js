@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Header, Title, Button, Icon, Left, Right, Body } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+import {
+    Notifications,
+  } from 'expo';
 import { FontAwesome, MaterialCommunityIcons, Ionicons } from 'react-native-vector-icons';
 import styles from './styles';
 import { View, Text, TouchableOpacity } from 'react-native';
@@ -15,7 +18,14 @@ export default class App extends Component {
         NavigationService.navigate('Settings');
 
     }
+    _handleNotification = (notification) => {
+        this.setState({notification: notification});
+      };
+    componentDidMount(){
+        this._notificationSubscription = Notifications.addListener(this._handleNotification);
+    }
     state = {
+        notification: {},
         alert: false,
         patient: {
             profile: {
@@ -75,7 +85,7 @@ export default class App extends Component {
                 <Grid style={styles.notificationgrid}>
                     <Row>
                         <View style ={{flexDirection:'column'}}>
-                        {!this.state.alert ?
+                        {!this.state.notification.origin ?
                             <View style={styles.notificationgrid}>
                                 <Ionicons name='ios-notifications-off' size={150} color="grey" />
                             </View>
@@ -88,6 +98,7 @@ export default class App extends Component {
                                     <FontAwesome name='ambulance' size={150} color="#F62A00" />
 
                                 </TouchableOpacity>
+                                <Text>Data: {JSON.stringify(this.state.notification.data)}</Text>
 
                             </View>
                         }
@@ -98,6 +109,7 @@ export default class App extends Component {
                                 margin: 10,
                             }}
                         />
+                        
                         </View>
                     </Row>
                     

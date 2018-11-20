@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, Text, View, ActivityIndicator } from 'react-native';
+import { Platform, BackHandler, View, ActivityIndicator } from 'react-native';
 import { Constants, Location, Permissions, MapView } from 'expo';
 import styles from './styles';
 
@@ -27,6 +27,12 @@ export default class App extends Component {
     } else {
       this._getLocationAsync();
     }
+    
+      const that = this;
+      BackHandler.addEventListener('hardwareBackPress', () => {
+          that.props.navigation.navigate('Profile');
+          return true;
+      });
   }
 
   _getLocationAsync = async () => {
@@ -43,7 +49,7 @@ export default class App extends Component {
 
   render() {
     let text = 'Waiting..';
-    console.log(this.state.location ? this.state.location.coords.latitude : '123...');
+    //console.log(this.state.location ? this.state.location.coords.latitude : '123...');
     if (this.state.errorMessage) {
       text = this.state.errorMessage;
     } else if (this.state.location) {

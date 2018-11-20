@@ -1,9 +1,9 @@
 {
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 6358,
+  "expoServerNgrokUrl": "https://gb-cp2.jastworld.rxnow-client.exp.direct",
+  "packagerNgrokUrl": "https://packager.gb-cp2.jastworld.rxnow-client.exp.direct",
+  "ngrokPid": 6378,
   "devToolsPort": 19002
 }
